@@ -45,9 +45,7 @@ export default {
                   <p class="card-text">${el.timeInput}</p>
                   <p class="card-text">${el.roomLink}</p>
                   <a href="${el.roomLink}" class="btn btn-primary" id="start" style="background-color:#735c8b;border:none">Start Meeting</a>
-                  <style>
-                  startRestrict();
-                  </style>
+                
                   <button id='${index}' onclick='deleteNote(this.id)' class="btn btn-primary column" id="delete-btn" style="background-color:#ae9bc4; border:none;">Delete Meeting</button>
                </div>
             </div>
@@ -61,31 +59,6 @@ export default {
         } else {
             document.querySelector('#schedule-notes').innerHTML = `<h4 style="position:absolute;padding-left:25%;padding-top:5%;color:grey">No meetings scheduled yet.</h4>`
         }
-    },
-
-    startRestrict() {
-        var input = document.querySelector('#date-input').value;
-        var today = new Date();
-        var day = new String(today.getDate());
-        var mon = new String(today.getMonth() + 1); //January is 0!
-        var yr = today.getFullYear();
-        var date = new String(day + '-' + mon + '-' + yr);
-
-        if (input != date) {
-
-            s=document.getElementById("start")
-            s.setAttribute("style",'a.pointer-events:none');
-           // ` <a href="javascript:void(0)" class="btn btn-primary" id="start" style="background-color:#735c8b;border:none">Start Meeting</a>`
-
-        }
-        else {
-            s=document.getElementById("start")
-            s.setAttribute("style",'a.pointer-events:true');
-           // `  <a href="${el.roomLink}" class="btn btn-primary" id="start" style="background-color:#735c8b;border:none">Start Meeting</a>`
-
-
-        }
-
     },
 
     deleteNote(index) {
