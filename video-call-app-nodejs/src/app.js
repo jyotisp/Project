@@ -162,6 +162,29 @@ app.post("/login",async (req,res)=>{
     }
 })
 
+app.post("/index", async (req, res) => {
+    try {
+        let roomname = req.body.roomname;
+        let username = req.body.username;
+        let date = req.body.date;
+      //  let time = req.body.time;
+
+
+        const meetinguser = new Meeting({
+            roomname: req.body.roomname,
+            username: req.body.username,
+            date: req.body.date
+           // time: time
+        })
+
+
+        const meeting = await meetinguser.save();
+
+    }catch (error) {
+        console.log(error);
+    }
+
+})
 
 io.of( '/stream' ).on( 'connection', stream );
 
