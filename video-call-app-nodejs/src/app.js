@@ -15,6 +15,7 @@ const hbs=require("hbs");
 //const bcrypt= require("bcryptjs");
 require("./db/conn");
 const Register=require("./models/registers");
+const Meeting=require("./models/meetings");
 const port=process.env.PORT || 3000;
 
 //const static_path=path.join(__dirname,"../public");
